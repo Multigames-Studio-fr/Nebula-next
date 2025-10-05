@@ -12,6 +12,9 @@ export class LibRepoStructure extends BaseMavenRepo {
     public static readonly MCLANGUAGE_ARTIFACT = 'mclanguage'
     public static readonly LOWCODELANGUAGE_ARTIFACT = 'lowcodelanguage'
 
+    public static readonly NEOFORGE_GROUP = 'net.neoforged'
+    public static readonly NEOFORGE_ARTIFACT = 'neoforge'
+
     constructor(
         absoluteRoot: string,
         relativeRoot: string
@@ -27,6 +30,13 @@ export class LibRepoStructure extends BaseMavenRepo {
         return this.getArtifactByComponents(
             LibRepoStructure.FORGE_GROUP,
             LibRepoStructure.FORGE_ARTIFACT,
+            version, classifier, 'jar')
+    }
+
+    public getLocalNeoForge(version: string, classifier?: string): string {
+        return this.getArtifactByComponents(
+            LibRepoStructure.NEOFORGE_GROUP,
+            LibRepoStructure.NEOFORGE_ARTIFACT,
             version, classifier, 'jar')
     }
 
